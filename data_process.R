@@ -84,7 +84,7 @@ for(i in 1:2){ #length(fns)
 }
 dat$O2_uM_corr = correct_o2(dat$O2_conc_uM,dat$temp_C,832)
 dat$datetime = dat$datetime + time_shift
-write.csv(dat,"~/Dropbox/Harvard/ABISS/Analysis/FinalData/optode1.csv",row.names=FALSE)
+write.csv(dat,"FinalData/optode1.csv",row.names=FALSE)
 
 # optode 2 ####
 fns <- dir(path, pattern = "^o2_2", full.names=FALSE, recursive=TRUE) 
@@ -100,7 +100,7 @@ for(i in 1:2){ #length(fns)
 }
 dat$O2_uM_corr = correct_o2(dat$O2_conc_uM,dat$temp_C,832)
 dat$datetime = dat$datetime + time_shift
-write.csv(dat,"~/Dropbox/Harvard/ABISS/Analysis/FinalData/optode2.csv",row.names=FALSE)
+write.csv(dat,"FinalData/optode2.csv",row.names=FALSE)
 
 # rga ####
 fns <- dir(path, pattern = "^ra", full.names=FALSE, recursive=TRUE) 
@@ -117,5 +117,5 @@ for(i in 1:2){ #length(fns)
 dat[,-1] <- dat[,-1]/1.72e12 # per Dan: this is according to instrument manual
 dat$total <- rowSums( dat[,c(-1,-643)])
 dat$datetime = dat$datetime + time_shift + rga_shift
-write.csv(dat,"~/Dropbox/Harvard/ABISS/Analysis/FinalData/rga.csv",row.names=FALSE)
+write.csv(dat,"FinalData/rga.csv",row.names=FALSE)
 
